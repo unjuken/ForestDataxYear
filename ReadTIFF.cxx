@@ -10,7 +10,7 @@
 
 int main(int argc, char* argv[])
 {
-    const std::string path = "/Users/aramirez/Documents/SciViz/Proyecto/";
+    const std::string path = "/Users/aramirez/Documents/SciViz/Proyecto/COL Forest Change/";
     const std::string originalFileName = "ForestData.tif";
 
     for (int i = 1; i <= 19; ++i) {
@@ -45,10 +45,10 @@ int main(int argc, char* argv[])
         }
         vtkSmartPointer<vtkImageResize> resize = vtkSmartPointer<vtkImageResize>::New();
         resize->SetInputData(image);
-        resize->SetOutputDimensions(3000, 3000, 1);
+        resize->SetOutputDimensions(1080, 1080, 1);
         resize->Update();
 
-        std::string fileName = "b_" + std::to_string(2000 + i) + ".png";
+        std::string fileName = "b_" + std::to_string(2000 + i) + ".1080.png";
         vtkSmartPointer<vtkPNGWriter> jWriter = vtkSmartPointer<vtkPNGWriter>::New();
         jWriter->SetFileName((path + fileName).c_str());
         jWriter->SetInputData(resize->GetOutput());
